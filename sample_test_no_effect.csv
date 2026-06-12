@@ -1,0 +1,3 @@
+variant,users,conversions
+control,50000,3000
+treatment,50000,3001
