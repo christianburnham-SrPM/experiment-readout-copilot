@@ -1,0 +1,10 @@
+{"id": "H01", "question": "Have we ever tested free-shipping thresholds, and what happened?", "expected_id": "EXP-014"}
+{"id": "H02", "question": "What do we know about urgency or scarcity messaging?", "expected_id": "EXP-022"}
+{"id": "H03", "question": "Did removing checkout deposits ever get tested?", "expected_id": "EXP-019"}
+{"id": "H04", "question": "What happened when we tried fraud friction on risky orders?", "expected_id": "EXP-091"}
+{"id": "H05", "question": "Any learnings on cart abandonment reminder timing?", "expected_id": "EXP-040"}
+{"id": "H06", "question": "Have subscription cancel-flow save offers worked for us?", "expected_id": "EXP-087"}
+{"id": "H07", "question": "What did we learn about sample ratio mismatch?", "expected_id": "EXP-053"}
+{"id": "H08", "question": "Did guest checkout ever beat account-first?", "expected_id": "EXP-074"}
+{"id": "H09", "question": "Results from BNPL or pay-later options?", "expected_id": "EXP-067"}
+{"id": "H10", "question": "What do we know about page speed and conversion?", "expected_id": "EXP-095"}

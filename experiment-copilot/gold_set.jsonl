@@ -1,0 +1,20 @@
+{"id": "G01", "name": "Canonical winner: 3.2% -> 3.8% at 10k/arm", "control_n": 10000, "control_conv": 320, "treat_n": 10000, "treat_conv": 380, "expected_decision": "SHIP"}
+{"id": "G02", "name": "Clear loser: 4.0% -> 3.4% at 12k/arm", "control_n": 12000, "control_conv": 480, "treat_n": 12000, "treat_conv": 408, "expected_decision": "DO NOT SHIP"}
+{"id": "G03", "name": "Underpowered small test: 3.2% -> 3.8% at 500/arm", "control_n": 500, "control_conv": 16, "treat_n": 500, "treat_conv": 19, "expected_decision": "KEEP RUNNING"}
+{"id": "G04", "name": "Marginal p, mid sample: 5.0% -> 5.5% at 8k/arm", "control_n": 8000, "control_conv": 400, "treat_n": 8000, "treat_conv": 440, "expected_decision": "KEEP RUNNING"}
+{"id": "G05", "name": "Huge N, tiny real lift: 10.00% -> 10.25% at 200k/arm", "control_n": 200000, "control_conv": 20000, "treat_n": 200000, "treat_conv": 20500, "expected_decision": "SHIP"}
+{"id": "G06", "name": "Exact null at scale: 6.0% -> 6.0% at 50k/arm", "control_n": 50000, "control_conv": 3000, "treat_n": 50000, "treat_conv": 3001, "expected_decision": "DO NOT SHIP"}
+{"id": "G07", "name": "SRM: 50/43 split with apparent win", "control_n": 10000, "control_conv": 320, "treat_n": 8600, "treat_conv": 330, "expected_decision": "INVESTIGATE"}
+{"id": "G08", "name": "SRM: heavy skew with apparent big win", "control_n": 20000, "control_conv": 800, "treat_n": 14000, "treat_conv": 700, "expected_decision": "INVESTIGATE"}
+{"id": "G09", "name": "Strong winner: 2.0% -> 2.6% at 30k/arm", "control_n": 30000, "control_conv": 600, "treat_n": 30000, "treat_conv": 780, "expected_decision": "SHIP"}
+{"id": "G10", "name": "Significant small loss at scale: 8.0% -> 7.7% at 100k/arm", "control_n": 100000, "control_conv": 8000, "treat_n": 100000, "treat_conv": 7700, "expected_decision": "DO NOT SHIP"}
+{"id": "G11", "name": "Tiny pilot, big apparent lift: 10 -> 16 conv at 400/arm", "control_n": 400, "control_conv": 10, "treat_n": 400, "treat_conv": 16, "expected_decision": "KEEP RUNNING"}
+{"id": "G12", "name": "Low-baseline winner: 0.50% -> 0.65% at 80k/arm", "control_n": 80000, "control_conv": 400, "treat_n": 80000, "treat_conv": 520, "expected_decision": "SHIP"}
+{"id": "G13", "name": "Noise at moderate N: 7.0% -> 7.1% at 15k/arm", "control_n": 15000, "control_conv": 1050, "treat_n": 15000, "treat_conv": 1065, "expected_decision": "DO NOT SHIP"}
+{"id": "G14", "name": "Borderline p just under .05: 4.0% -> 4.4% at 20k/arm", "control_n": 20000, "control_conv": 800, "treat_n": 20000, "treat_conv": 880, "expected_decision": "SHIP"}
+{"id": "G15", "name": "Borderline p just over .05: 4.0% -> 4.35% at 20k/arm", "control_n": 20000, "control_conv": 800, "treat_n": 20000, "treat_conv": 870, "expected_decision": "KEEP RUNNING"}
+{"id": "G16", "name": "Asymmetric arms, no SRM signal: 5k vs 5.1k", "control_n": 5000, "control_conv": 250, "treat_n": 5100, "treat_conv": 280, "expected_decision": "KEEP RUNNING"}
+{"id": "G17", "name": "Catastrophic loser: 5.0% -> 3.5% at 6k/arm", "control_n": 6000, "control_conv": 300, "treat_n": 6000, "treat_conv": 210, "expected_decision": "DO NOT SHIP"}
+{"id": "G18", "name": "Zero conversions both arms (broken tracking?)", "control_n": 2000, "control_conv": 0, "treat_n": 2000, "treat_conv": 0, "expected_decision": "INVESTIGATE"}
+{"id": "G19", "name": "Winner with modest N: 12% -> 14% at 3k/arm", "control_n": 3000, "control_conv": 360, "treat_n": 3000, "treat_conv": 420, "expected_decision": "SHIP"}
+{"id": "G20", "name": "Direction flip risk: 3.8% -> 3.6% at 4k/arm (noise)", "control_n": 4000, "control_conv": 152, "treat_n": 4000, "treat_conv": 144, "expected_decision": "KEEP RUNNING"}
