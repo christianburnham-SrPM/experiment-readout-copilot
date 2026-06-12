@@ -1,8 +1,3 @@
-# The 10 Probes — and Where Each Answer Lives
-
-Spend one hour here before any interview. You don't defend code line-by-line; you
-defend decisions. These are yours.
-
 **1. Why this project?**
 Readouts were my job at Lowe's — I scaled experimentation 5x and watched bad calls cost
 more than slow writing ever did. I built the tool I'd have wanted, with the failure
