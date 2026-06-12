@@ -130,7 +130,10 @@ Results
 
 * Decision Regression Suite: 20/20 scenarios passed
 * Retrieval Evaluation: 90% retrieval success rate
-* Memo Faithfulness Testing: Included as part of the application evaluation workflow
+* Memo Faithfulness Testing: 4/5 passed — one memo cited historical experiments 
+  that weren't present in the retrieved sources (invented priors). The 
+  numbers and decision were correct, but the eval flagged the fabricated 
+  context before it could reach a stakeholder.
 
 The evaluation process directly influenced product decisions and surfaced edge cases that would otherwise have reached production.
 
