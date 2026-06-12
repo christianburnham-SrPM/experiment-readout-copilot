@@ -8,8 +8,7 @@ How do you use AI to accelerate decision-making without compromising trust in th
 
 The result is a decision-support application that combines deterministic statistical analysis, retrieval-augmented generation (RAG), and evaluation-driven AI workflows to help product teams analyze experiments more efficiently while maintaining confidence in the results.
 
-Live Demo: [Streamlit URL]
-Demo Video: [Loom URL]
+**[▶ Try the Live Demo](https://experiment-readout-copilot-j9kw2qsbuawj8y2txaqdbg.streamlit.app)**
 
 ⸻
 
