@@ -20,7 +20,7 @@ def tokenize(text: str):
 
 
 class Memory:
-    def __init__(self, path: Path = Path("readouts.jsonl")):
+    def __init__(self, path: Path = Path(__file__).parent / "readouts.jsonl"):
         self.docs = [json.loads(l) for l in Path(path).read_text(encoding="utf-8").splitlines() if l.strip()]
         fields = ["title", "area", "hypothesis", "result", "decision", "learning"]
         self._bm25 = BM25Okapi([tokenize(" ".join(d[f] for f in fields)) for d in self.docs])
