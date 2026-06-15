@@ -1,0 +1,159 @@
+<svg viewBox="0 0 1180 920" xmlns="http://www.w3.org/2000/svg" font-family="Segoe UI, Helvetica, Arial, sans-serif">
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L8,3 L0,6 Z" fill="#475569"/>
+    </marker>
+    <marker id="arrowGreen" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L8,3 L0,6 Z" fill="#15803d"/>
+    </marker>
+    <marker id="arrowViolet" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L8,3 L0,6 Z" fill="#7c3aed"/>
+    </marker>
+  </defs>
+
+  <rect width="1180" height="920" fill="#f8fafc"/>
+
+  <!-- Title -->
+  <text x="40" y="48" font-size="26" font-weight="700" fill="#0f172a">Experiment Analysis Copilot — Architecture</text>
+  <text x="40" y="74" font-size="15" fill="#475569">The trust boundary: deterministic code computes every number · the AI only narrates · evals verify both</text>
+
+  <!-- ===================== LEGEND ===================== -->
+  <g transform="translate(760,30)">
+    <rect x="0" y="0" width="380" height="56" rx="8" fill="#ffffff" stroke="#e2e8f0"/>
+    <rect x="14" y="14" width="16" height="16" rx="3" fill="#dbeafe" stroke="#2563eb"/>
+    <text x="36" y="27" font-size="12.5" fill="#1e293b">Deterministic (code computes)</text>
+    <rect x="210" y="14" width="16" height="16" rx="3" fill="#ede9fe" stroke="#7c3aed"/>
+    <text x="232" y="27" font-size="12.5" fill="#1e293b">AI layer (narrates only)</text>
+    <rect x="14" y="34" width="16" height="14" rx="3" fill="#dcfce7" stroke="#15803d"/>
+    <text x="36" y="45" font-size="12.5" fill="#1e293b">Evaluation (verifies)</text>
+    <rect x="210" y="34" width="16" height="14" rx="3" fill="#fef3c7" stroke="#b45309"/>
+    <text x="232" y="45" font-size="12.5" fill="#1e293b">Data store</text>
+  </g>
+
+  <!-- ===================== USER INPUT ===================== -->
+  <g transform="translate(40,100)">
+    <rect x="0" y="0" width="1100" height="78" rx="10" fill="#ffffff" stroke="#cbd5e1"/>
+    <text x="20" y="26" font-size="14" font-weight="700" fill="#334155">USER INPUT  ·  app.py (Streamlit UI)</text>
+    <rect x="20" y="38" width="250" height="28" rx="6" fill="#f1f5f9" stroke="#cbd5e1"/>
+    <text x="34" y="56" font-size="12.5" fill="#1e293b">Analyze tab — 4 numbers or CSV</text>
+    <rect x="290" y="38" width="250" height="28" rx="6" fill="#f1f5f9" stroke="#cbd5e1"/>
+    <text x="304" y="56" font-size="12.5" fill="#1e293b">Ask History tab — free-text question</text>
+    <rect x="560" y="38" width="250" height="28" rx="6" fill="#f1f5f9" stroke="#cbd5e1"/>
+    <text x="574" y="56" font-size="12.5" fill="#1e293b">Evals tab — 3 run buttons</text>
+  </g>
+
+  <!-- ===================== DETERMINISTIC ENGINE ===================== -->
+  <g transform="translate(40,228)">
+    <rect x="0" y="0" width="520" height="190" rx="10" fill="#dbeafe" stroke="#2563eb" stroke-width="1.5"/>
+    <text x="20" y="28" font-size="15" font-weight="700" fill="#1e3a8a">STATISTICS ENGINE  ·  stats.py</text>
+    <text x="20" y="48" font-size="12" fill="#1e40af" font-style="italic">Deterministic — no LLM. Computes every number.</text>
+
+    <rect x="20" y="60" width="232" height="30" rx="6" fill="#ffffff" stroke="#93c5fd"/>
+    <text x="32" y="79" font-size="12" fill="#1e293b">Two-proportion z-test → p-value</text>
+    <rect x="268" y="60" width="232" height="30" rx="6" fill="#ffffff" stroke="#93c5fd"/>
+    <text x="280" y="79" font-size="12" fill="#1e293b">95% confidence interval</text>
+    <rect x="20" y="98" width="232" height="30" rx="6" fill="#ffffff" stroke="#93c5fd"/>
+    <text x="32" y="117" font-size="12" fill="#1e293b">SRM check (traffic split)</text>
+    <rect x="268" y="98" width="232" height="30" rx="6" fill="#ffffff" stroke="#93c5fd"/>
+    <text x="280" y="117" font-size="12" fill="#1e293b">Power analysis (required N/arm)</text>
+
+    <rect x="20" y="138" width="480" height="36" rx="6" fill="#1e3a8a"/>
+    <text x="32" y="161" font-size="12.5" font-weight="700" fill="#ffffff">DECISION POLICY → SHIP · DO NOT SHIP · KEEP RUNNING · INVESTIGATE</text>
+  </g>
+
+  <!-- ===================== RETRIEVAL / RAG ===================== -->
+  <g transform="translate(620,228)">
+    <rect x="0" y="0" width="520" height="190" rx="10" fill="#ffffff" stroke="#7c3aed" stroke-width="1.5"/>
+    <text x="20" y="28" font-size="15" font-weight="700" fill="#5b21b6">RETRIEVAL (RAG)  ·  retrieval.py + history_qa.py</text>
+    <text x="20" y="48" font-size="12" fill="#6d28d9" font-style="italic">Retrieve → ground → generate w/ citations → refuse if empty</text>
+
+    <rect x="20" y="60" width="232" height="44" rx="6" fill="#ede9fe" stroke="#c4b5fd"/>
+    <text x="32" y="78" font-size="12" font-weight="600" fill="#1e293b">BM25 lexical retrieval</text>
+    <text x="32" y="95" font-size="11" fill="#475569">top-k over readout library</text>
+
+    <rect x="268" y="60" width="232" height="44" rx="6" fill="#ede9fe" stroke="#c4b5fd"/>
+    <text x="280" y="78" font-size="12" font-weight="600" fill="#1e293b">Grounding contract</text>
+    <text x="280" y="95" font-size="11" fill="#475569">model may use ONLY retrieved text</text>
+
+    <rect x="20" y="116" width="480" height="58" rx="6" fill="#fef3c7" stroke="#f59e0b"/>
+    <text x="32" y="138" font-size="12.5" font-weight="700" fill="#92400e">readouts.jsonl — 40 prior experiments</text>
+    <text x="32" y="158" font-size="11" fill="#78350f">institutional memory · hypothesis · result · decision · learning</text>
+  </g>
+
+  <!-- ===================== AI LAYER ===================== -->
+  <g transform="translate(620,470)">
+    <rect x="0" y="0" width="520" height="150" rx="10" fill="#ede9fe" stroke="#7c3aed" stroke-width="1.5"/>
+    <text x="20" y="28" font-size="15" font-weight="700" fill="#5b21b6">AI LAYER  ·  memo.py + history_qa.py</text>
+    <text x="20" y="48" font-size="12" fill="#6d28d9" font-style="italic">Claude (Anthropic API) — narrates, never calculates</text>
+
+    <rect x="20" y="60" width="480" height="34" rx="6" fill="#ffffff" stroke="#c4b5fd"/>
+    <text x="32" y="82" font-size="12" fill="#1e293b">System prompt: numbers verbatim · respect decision · ≤2 priors by ID</text>
+
+    <rect x="20" y="102" width="232" height="34" rx="6" fill="#ffffff" stroke="#c4b5fd"/>
+    <text x="32" y="124" font-size="12" fill="#1e293b">Executive memo (memo.py)</text>
+    <rect x="268" y="102" width="232" height="34" rx="6" fill="#ffffff" stroke="#c4b5fd"/>
+    <text x="280" y="124" font-size="12" fill="#1e293b">Grounded Q&amp;A (history_qa.py)</text>
+  </g>
+
+  <!-- ===================== OUTPUT ===================== -->
+  <g transform="translate(40,470)">
+    <rect x="0" y="0" width="520" height="150" rx="10" fill="#ffffff" stroke="#cbd5e1"/>
+    <text x="20" y="28" font-size="15" font-weight="700" fill="#334155">OUTPUT TO USER</text>
+    <rect x="20" y="44" width="480" height="32" rx="6" fill="#f1f5f9" stroke="#cbd5e1"/>
+    <text x="32" y="65" font-size="12" fill="#1e293b">Decision card — verdict + metrics + rationale</text>
+    <rect x="20" y="84" width="480" height="32" rx="6" fill="#f1f5f9" stroke="#cbd5e1"/>
+    <text x="32" y="105" font-size="12" fill="#1e293b">Executive memo + cited prior experiments</text>
+    <text x="20" y="138" font-size="11.5" fill="#64748b" font-style="italic">Every number traces to the engine; every citation traces to a retrieved doc.</text>
+  </g>
+
+  <!-- ===================== EVAL SUITE ===================== -->
+  <g transform="translate(40,672)">
+    <rect x="0" y="0" width="1100" height="200" rx="10" fill="#dcfce7" stroke="#15803d" stroke-width="1.5"/>
+    <text x="20" y="30" font-size="15" font-weight="700" fill="#14532d">EVALUATION SUITE  ·  evals.py  —  verifies both halves</text>
+
+    <rect x="20" y="46" width="345" height="135" rx="8" fill="#ffffff" stroke="#86efac"/>
+    <text x="36" y="70" font-size="13" font-weight="700" fill="#166534">Layer 1 — Decision Regression</text>
+    <text x="36" y="90" font-size="11.5" fill="#475569">tests the CODE (deterministic, free)</text>
+    <text x="36" y="112" font-size="11.5" fill="#1e293b">gold_set.jsonl — 20 locked scenarios</text>
+    <rect x="36" y="126" width="120" height="34" rx="6" fill="#dcfce7" stroke="#22c55e"/>
+    <text x="50" y="148" font-size="14" font-weight="700" fill="#166534">20 / 20 pass</text>
+
+    <rect x="378" y="46" width="345" height="135" rx="8" fill="#ffffff" stroke="#86efac"/>
+    <text x="394" y="70" font-size="13" font-weight="700" fill="#166534">Retrieval Hit-Rate</text>
+    <text x="394" y="90" font-size="11.5" fill="#475569">tests the RAG retrieval (free)</text>
+    <text x="394" y="112" font-size="11.5" fill="#1e293b">gold_history.jsonl — 10 questions</text>
+    <rect x="394" y="126" width="120" height="34" rx="6" fill="#dcfce7" stroke="#22c55e"/>
+    <text x="408" y="148" font-size="14" font-weight="700" fill="#166534">9 / 10 hit</text>
+    <text x="524" y="148" font-size="10.5" fill="#b45309">H07: SRM acronym gap</text>
+
+    <rect x="736" y="46" width="345" height="135" rx="8" fill="#ffffff" stroke="#86efac"/>
+    <text x="752" y="70" font-size="13" font-weight="700" fill="#166534">Layer 2 — Memo Faithfulness</text>
+    <text x="752" y="90" font-size="11.5" fill="#475569">tests the AI (LLM-judged, uses API)</text>
+    <text x="752" y="112" font-size="11.5" fill="#1e293b">numbers · decision · invented priors</text>
+    <rect x="752" y="126" width="120" height="34" rx="6" fill="#fef3c7" stroke="#f59e0b"/>
+    <text x="766" y="148" font-size="14" font-weight="700" fill="#92400e">4 / 5 pass</text>
+    <text x="882" y="148" font-size="10.5" fill="#b45309">G10: invented priors</text>
+  </g>
+
+  <!-- ===================== FLOW ARROWS ===================== -->
+  <!-- input -> engine -->
+  <path d="M180,178 L180,228" stroke="#475569" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
+  <!-- input -> retrieval (ask history) -->
+  <path d="M520,178 L760,228" stroke="#7c3aed" stroke-width="2" fill="none" marker-end="url(#arrowViolet)"/>
+  <!-- engine -> output (decision card) -->
+  <path d="M210,418 L210,470" stroke="#475569" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
+  <!-- engine -> AI (stats block passed verbatim) -->
+  <path d="M560,360 L620,520" stroke="#2563eb" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
+  <text x="556" y="445" font-size="11" font-weight="600" fill="#1e40af" transform="rotate(22,556,445)">numbers verbatim</text>
+  <!-- retrieval -> AI (priors) -->
+  <path d="M880,418 L880,470" stroke="#7c3aed" stroke-width="2" fill="none" marker-end="url(#arrowViolet)"/>
+  <text x="892" y="448" font-size="11" font-weight="600" fill="#6d28d9">retrieved priors</text>
+  <!-- AI -> output -->
+  <path d="M620,545 L560,545" stroke="#7c3aed" stroke-width="2" fill="none" marker-end="url(#arrowViolet)"/>
+  <!-- eval verifies engine -->
+  <path d="M210,620 L210,672" stroke="#15803d" stroke-width="2" stroke-dasharray="6 4" fill="none" marker-end="url(#arrowGreen)"/>
+  <text x="222" y="650" font-size="11" font-weight="600" fill="#166534">verifies code</text>
+  <!-- eval verifies AI -->
+  <path d="M880,620 L880,672" stroke="#15803d" stroke-width="2" stroke-dasharray="6 4" fill="none" marker-end="url(#arrowGreen)"/>
+  <text x="892" y="650" font-size="11" font-weight="600" fill="#166534">verifies AI</text>
+</svg>
